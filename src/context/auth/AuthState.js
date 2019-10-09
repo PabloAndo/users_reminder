@@ -10,9 +10,8 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
-  LOGIN_FAIL
-  // LOGOUT,
-  // CLEAR_ERRORS
+  LOGIN_FAIL,
+  LOGOUT
 } from '../types';
 
 const AuthState = props => {
@@ -93,8 +92,6 @@ const AuthState = props => {
         type: LOGIN_SUCCESS,
         payload: res.data
       });
-      console.log(res.data);
-      console.log('LOGGGIIIIIN');
       //loadUser();
     } catch (err) {
       dispatch({
@@ -105,7 +102,7 @@ const AuthState = props => {
   };
   // TODO: Logout
   const logout = () => {
-    console.log('logout');
+    dispatch({ type: LOGOUT });
   };
 
   // TODO: Clear Errors
