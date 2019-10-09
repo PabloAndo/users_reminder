@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import AlertContext from '../../context/alert/alertContext';
 
 const SignUp = () => {
+  const alertContext = useContext(AlertContext);
+
+  const { setAlert } = alertContext;
+
   // TODO: maybe include username and email, and validate password
   const [user, setUser] = useState({
     username: '',
@@ -13,9 +18,14 @@ const SignUp = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log('Sign Up Submit');
+    if (username === '' || password === '') {
+      setAlert('Please enter all fields', 'danger');
+    } else {
+      console.log('Sign Up Submit');
+    }
   };
 
+  // TODO: minLength of password to 6 for example?
   return (
     <div className='form-container'>
       <h1>
@@ -24,11 +34,11 @@ const SignUp = () => {
       <form onSubmit={onSubmit}>
         <div className='from-group'>
           <label htmlFor='email'>User name (email)</label>
-          <input type='email' name='mail' value={username} onChange={onChange} />
+          <input type='email' name='mail' value={username} onChange={onChange} required />
         </div>
         <div className='from-group'>
           <label htmlFor='password'>Password</label>
-          <input type='password' name='password' value={password} />
+          <input type='password' name='password' value={password} required />
         </div>
         <input type='submit' value='Sign Up' className='btn btn-primary btn-block' />
       </form>
