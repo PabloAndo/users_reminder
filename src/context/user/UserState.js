@@ -31,4 +31,4 @@ const UserState = props => {
   return <UserContext.Provider value={{ users: state.users }}>{props.children}</UserContext.Provider>;
 };
 
-export default UserContext;
+export default UserState;
