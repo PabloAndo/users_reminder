@@ -2,9 +2,11 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
+import SignUp from './components/auth/SignUp';
+import Login from './components/auth/Login';
 
 import UserState from './context/user/UserState';
-import AuthState from './context/user/AuthState';
+import AuthState from './context/auth/AuthState';
 
 import './App.css';
 
@@ -19,6 +21,8 @@ const App = () => {
             <div className='container'>
               <Switch>
                 <Route exact path='/' component={Home} />
+                <Route exact path='/signup' component={SignUp} />
+                <Route exact path='/login' component={Login} />
               </Switch>
             </div>
           </Fragment>
