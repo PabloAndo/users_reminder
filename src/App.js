@@ -11,7 +11,7 @@ import UserState from './context/user/UserState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 
-import setAuthToken from './utils/setAuthToken';
+import setAuthToken from './utils/AuthTokenHelper';
 
 import './App.css';
 

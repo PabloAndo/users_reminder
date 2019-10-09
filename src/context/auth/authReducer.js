@@ -22,12 +22,14 @@ export default (state, action) => {
     case LOGIN_SUCCESS:
       localStorage.setItem('token', action.payload.accessToken);
       localStorage.setItem('username', action.payload.username);
+
       return {
         ...state,
         ...action.payload,
         isAuthenticated: true,
         loading: false,
-        user: action.payload.username
+        user: action.payload.username,
+        token: action.payload.accessToken
       };
     case AUTH_ERROR:
     case REGISTER_FAIL:
