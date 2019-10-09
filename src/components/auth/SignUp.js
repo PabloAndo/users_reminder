@@ -1,10 +1,21 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
+import AuthContext from '../../context/auth/authContext';
 
 const SignUp = () => {
   const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext;
+  const { register, error, clearErrors } = authContext;
+
+  // TODO: Improve this
+  useEffect(() => {
+    if (error === 'Username already in use') {
+      setAlert(error, 'danger');
+      clearErrors();
+    }
+  }, [error]);
 
   // TODO: maybe include username and email, and validate password
   const [user, setUser] = useState({
@@ -14,14 +25,18 @@ const SignUp = () => {
 
   const { username, password } = user;
 
-  const onChange = e => setUser({ ...user, [e.target.username]: e.target.value });
+  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
     if (username === '' || password === '') {
       setAlert('Please enter all fields', 'danger');
     } else {
-      console.log('Sign Up Submit');
+      register({
+        username,
+        password
+        
+      });
     }
   };
 
@@ -29,16 +44,16 @@ const SignUp = () => {
   return (
     <div className='form-container'>
       <h1>
-        Account <span className='text-primary'>Register</span>
+        Account <span className='text-primary'>Sign Up</span>
       </h1>
       <form onSubmit={onSubmit}>
         <div className='from-group'>
-          <label htmlFor='email'>User name (email)</label>
-          <input type='email' name='mail' value={username} onChange={onChange} required />
+          <label htmlFor='username'>User name (email)</label>
+          <input type='email' name='username' value={username} onChange={onChange} />
         </div>
         <div className='from-group'>
           <label htmlFor='password'>Password</label>
-          <input type='password' name='password' value={password} required />
+          <input type='password' name='password' value={password} onChange={onChange} />
         </div>
         <input type='submit' value='Sign Up' className='btn btn-primary btn-block' />
       </form>
