@@ -2,14 +2,15 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import setAuthToken from '../../utils/setAuthToken';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-  CLEAR_ERRORS
-  // USER_LOADED,
-  // AUTH_ERROR,
-  // LOGIN_SUCCESS,
-  // LOGIN_FAIL,
+  CLEAR_ERRORS,
+  USER_LOADED,
+  AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
   // LOGOUT,
   // CLEAR_ERRORS
 } from '../types';
@@ -26,11 +27,33 @@ const AuthState = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   // TODO: Load User
-  const loadUser = () => {
-    console.log('load user');
-  };
 
- 
+  // const loadUser = async () => {
+  //   // TODO: Load token into global headers
+  //   if (localStorage.token) {
+  //     setAuthToken(localStorage.token);
+  //   }
+
+  //   const config = {
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   };
+
+  //   try {
+  //     const res = await axios.post('http://51.38.51.187:3333/api/v1/auth/login', config);
+
+  //     dispatch({
+  //       type: USER_LOADED,
+  //       payload: res.data
+  //     });
+  //   } catch (err) {
+  //     dispatch({
+  //       type: AUTH_ERROR
+  //     });
+  //   }
+  // };
+
   const register = async formData => {
     const config = {
       headers: {
@@ -39,13 +62,15 @@ const AuthState = props => {
     };
 
     try {
-      const res = await axios.post('/api/v1/auth/register', formData, config);
+      const res = await axios.post('http://51.38.51.187:3333/api/v1/auth/register', formData, config);
 
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data
       });
-    } catch (err) {     
+
+      //loadUser();
+    } catch (err) {
       dispatch({
         type: REGISTER_FAIL,
         payload: err.response.data.message
@@ -54,8 +79,29 @@ const AuthState = props => {
   };
 
   // TODO: Login User
-  const login = () => {
-    console.log('login user');
+  const login = async formData => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.post('http://51.38.51.187:3333/api/v1/auth/login', formData, config);
+
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data
+      });
+      console.log(res.data);
+      console.log('LOGGGIIIIIN');
+      //loadUser();
+    } catch (err) {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: err.response.data.message
+      });
+    }
   };
   // TODO: Logout
   const logout = () => {
@@ -78,7 +124,7 @@ const AuthState = props => {
         user: state.user,
         error: state.error,
         register,
-        loadUser,
+        //loadUser,
         login,
         logout,
         clearErrors

@@ -9,7 +9,7 @@ const Users = () => {
 
   // TODO: maybe show a paragraph in case there is no Users included?
   // if (users.length == 0) {
-  //   return <h4>Pleaes add a user</h4>;
+  //   return <h4>Please add a user</h4>;
   // }
 
   // TODO: maybe include some transitions when deleting a user 'Transition Group'
