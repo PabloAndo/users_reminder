@@ -6,10 +6,10 @@ const UserItem = ({ user }) => {
   const userContext = useContext(UserContext);
   const { deleteUser } = userContext;
 
-  const { id, username } = user;
+  const { _id, username } = user;
 
   const onDelete = () => {
-    deleteUser(id);
+    deleteUser(_id);
   };
 
   return (

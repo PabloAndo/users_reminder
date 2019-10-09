@@ -19,7 +19,6 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-// TODO: create an About page
 const App = () => {
   return (
     <AuthState>

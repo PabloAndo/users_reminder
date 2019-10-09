@@ -19,7 +19,11 @@ export default (state, action) => {
         user: action.payload
       };
     case REGISTER_SUCCESS:
-    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        loading: false
+      };
+    case LOGIN_SUCCESS:      
       localStorage.setItem('token', action.payload.accessToken);
       localStorage.setItem('username', action.payload.username);
 

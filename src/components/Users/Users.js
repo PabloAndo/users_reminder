@@ -1,24 +1,42 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import UserItem from './UserItem';
 import UserContext from '../../context/user/userContext';
+import Spinner from '../layout/Spinner';
 
 const Users = () => {
   const userContext = useContext(UserContext);
 
-  const { users, filtered } = userContext;
+  const { users, filtered, getUsers, loading } = userContext;
 
-  // TODO: maybe show a paragraph in case there is no Users included?
-  // if (users.length == 0) {
-  //   return <h4>Please add a user</h4>;
-  // }
+  useEffect(() => {
+    getUsers();
+    // eslint-disable-next-line
+  }, []);
 
-  // TODO: maybe include some transitions when deleting a user 'Transition Group'
+  if (users !== null && users.length === 0 && !loading) {
+    return <h4>Please add a user</h4>;
+  }
 
   return (
     <Fragment>
-      {filtered !== null
-        ? filtered.map(user => <UserItem key={user.id} user={user} />)
-        : users.map(user => <UserItem key={user.id} user={user} />)}
+      {users !== null && !loading ? (
+        <TransitionGroup>
+          {filtered !== null
+            ? filtered.map(user => (
+                <CSSTransition key={user._id} timeout={1000} className='item'>
+                  <UserItem user={user} />
+                </CSSTransition>
+              ))
+            : users.map(user => (
+                <CSSTransition key={user._id} timeout={1000} className='item'>
+                  <UserItem user={user} />
+                </CSSTransition>
+              ))}
+        </TransitionGroup>
+      ) : (
+        <Spinner />
+      )}
     </Fragment>
   );
 };

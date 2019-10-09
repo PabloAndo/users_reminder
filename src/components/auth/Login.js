@@ -20,6 +20,11 @@ const Login = props => {
       clearErrors();
     }
 
+    if (error === 'Username was not found') {
+      setAlert(error, 'danger');
+      clearErrors();
+    }
+
     // eslint-disable-next-line
   }, [error, isAuthenticated, props.history]);
 
