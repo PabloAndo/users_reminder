@@ -27,8 +27,13 @@ const UserState = props => {
   // TODO: Add Contact
 
   // TODO: Delete Contact
+  const deleteUser = id => {
+    dispatch({ type: DELETE_USER, payload: id });
+  };
 
-  return <UserContext.Provider value={{ users: state.users }}>{props.children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ users: state.users, deleteUser }}>{props.children}</UserContext.Provider>
+  );
 };
 
 export default UserState;
