@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import SignUp from './components/auth/SignUp';
 import Login from './components/auth/Login';
+import Logout from './components/auth/Logout';
 import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -33,6 +34,7 @@ const App = () => {
                   <PrivateRoute exact path='/' component={Home} />
                   <Route exact path='/signup' component={SignUp} />
                   <Route exact path='/login' component={Login} />
+                  <PrivateRoute exact path='/logout' component={Logout} />
                 </Switch>
               </div>
             </Fragment>
