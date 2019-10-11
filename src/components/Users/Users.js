@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import UserItem from './UserItem';
 import UserContext from '../../context/user/userContext';
-import Spinner from '../layout/Spinner';
+import Spinner from '../layout/Spinner/Spinner';
 
 const Users = () => {
   const userContext = useContext(UserContext);

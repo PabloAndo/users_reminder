@@ -1,20 +1,13 @@
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import AuthContext from '../../context/auth/authContext';
-import UserContext from '../../context/user/userContext';
+import AuthContext from '../../../context/auth/authContext';
+import style from './Navbar.module.scss';
 
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
-  const userContext = useContext(UserContext);
 
-  const { isAuthenticated, logout, user } = authContext;
-  const { clearUsers } = userContext;
-
-  const onLogout = () => {
-    logout();
-    clearUsers();
-  };
+  const { isAuthenticated, user } = authContext;
 
   const authLinks = (
     <Fragment>
@@ -33,12 +26,17 @@ const Navbar = ({ title, icon }) => {
       <li>
         <Link to='/login'>Login</Link>
       </li>
+      <li>
+        <Link to='/about'>About</Link>
+      </li>
     </Fragment>
   );
 
   return (
-    <div className='navbar bg-primary'>
+    // navbar bg-primary
+    <div className={style.Navbar}>
       <h1>
+        <ion-icon name='contacts'></ion-icon>
         <i className={icon} /> {title}
       </h1>
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>

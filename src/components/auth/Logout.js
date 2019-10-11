@@ -10,9 +10,6 @@ const Logout = props => {
   const { clearUsers } = userContext;
 
   useEffect(() => {
-    // if (isAuthenticated) {
-    //   props.history.push('/');
-    // }
     authContext.loadUser();
     // eslint-disable-next-line
   }, [isAuthenticated, props.history]);
@@ -25,11 +22,11 @@ const Logout = props => {
   return (
     <div className='form-container'>
       <h1>
-        Account <span className='text-primary'>Login</span>
+        <span className='text-primary'>Logout</span> from your account
       </h1>
-      <a onClick={onLogout} href='#!'>
-        <ion-icon name='log-out'></ion-icon> <span className='hide-sm'>Logout</span>
-      </a>
+      <button className='btn btn-primary btn-block' onClick={onLogout}>
+        Logout
+      </button>
     </div>
   );
 };

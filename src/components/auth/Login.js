@@ -56,11 +56,11 @@ const Login = props => {
         Account <span className='text-primary'>Login</span>
       </h1>
       <form onSubmit={onSubmit}>
-        <div className='from-group'>
+        <div className='form-group'>
           <label htmlFor='email'>User name (email)</label>
           <input type='email' name='username' value={username} onChange={onChange} required />
         </div>
-        <div className='from-group'>
+        <div className='form-group'>
           <label htmlFor='password'>Password</label>
           <input type='password' name='password' value={password} onChange={onChange} required />
         </div>
