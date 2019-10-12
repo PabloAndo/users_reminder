@@ -50,32 +50,32 @@ const SignUp = props => {
 
   const onSubmit = e => {
     e.preventDefault();
-    const errors = schema.validate(password, { list: true });
+    // const errors = schema.validate(password, { list: true });
     if (username === '' || password === '') {
       setAlert('Please enter all fields', 'danger');
-    } else if (errors !== 0) {
-      errors.forEach(error => {
-        switch (error) {
-          case 'min':
-            setAlert('Password is too short - should be 6 chars minimum.', 'danger');
-            break;
-          case 'uppercase':
-            setAlert('Password must contain 1 uppercase char.', 'danger');
-            break;
-          case 'lowercase':
-            setAlert('Password must contain 1 lowercase char.', 'danger');
-            break;
-          case 'digits':
-            setAlert('Password must contain a number.', 'danger');
-            break;
-          case 'spaces':
-            setAlert('Password must not contain empty spaces.', 'danger');
-            break;
-          default:
-            setAlert('Invalid password', 'danger');
-            break;
-        }
-      });
+      // } else if (errors !== 0) {
+      //   errors.forEach(error => {
+      //     switch (error) {
+      //       case 'min':
+      //         setAlert('Password is too short - should be 6 chars minimum.', 'danger');
+      //         break;
+      //       case 'uppercase':
+      //         setAlert('Password must contain 1 uppercase char.', 'danger');
+      //         break;
+      //       case 'lowercase':
+      //         setAlert('Password must contain 1 lowercase char.', 'danger');
+      //         break;
+      //       case 'digits':
+      //         setAlert('Password must contain a number.', 'danger');
+      //         break;
+      //       case 'spaces':
+      //         setAlert('Password must not contain empty spaces.', 'danger');
+      //         break;
+      //       default:
+      //         setAlert('Invalid password', 'danger');
+      //         break;
+      //     }
+      //   });
     } else if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
