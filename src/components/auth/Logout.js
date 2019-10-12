@@ -21,10 +21,10 @@ const Logout = props => {
 
   return (
     <div className='form-container'>
-      <h1>
-        <span className='text-primary'>Logout</span> from your account
-      </h1>
-      <button className='btn btn-primary btn-block' onClick={onLogout}>
+      <div className='form-tittle u-margin-bottom-small'>
+        <ion-icon name='log-out' size='large'></ion-icon> Logout
+      </div>
+      <button className='btn btn--primary btn--block' onClick={onLogout}>
         Logout
       </button>
     </div>

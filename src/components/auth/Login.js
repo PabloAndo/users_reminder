@@ -9,7 +9,6 @@ const Login = props => {
   const { setAlert } = alertContext;
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
-  // TODO: Improve this
   useEffect(() => {
     if (isAuthenticated) {
       props.history.push('/');
@@ -28,7 +27,6 @@ const Login = props => {
     // eslint-disable-next-line
   }, [error, isAuthenticated, props.history]);
 
-  // TODO: maybe include username and email, and validate password
   const [user, setUser] = useState({
     username: '',
     password: ''
@@ -52,9 +50,9 @@ const Login = props => {
 
   return (
     <div className='form-container'>
-      <h1>
-        Account <span className='text-primary'>Login</span>
-      </h1>
+      <div className='form-tittle'>
+        <ion-icon name='log-in' size='large'></ion-icon> Login
+      </div>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
           <label htmlFor='email'>User name (email)</label>
@@ -64,7 +62,7 @@ const Login = props => {
           <label htmlFor='password'>Password</label>
           <input type='password' name='password' value={password} onChange={onChange} required />
         </div>
-        <input type='submit' value='Login' className='btn btn-primary btn-block' />
+        <input type='submit' value='Login' className='btn btn--primary btn--block' />
       </form>
     </div>
   );

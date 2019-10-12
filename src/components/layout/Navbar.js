@@ -1,8 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import AuthContext from '../../../context/auth/authContext';
-import style from './Navbar.module.scss';
+import AuthContext from '../../context/auth/authContext';
 
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
@@ -34,11 +33,11 @@ const Navbar = ({ title, icon }) => {
 
   return (
     // navbar bg-primary
-    <div className={style.Navbar}>
-      <h1>
+    <div className='navbar'>
+      <div className='navbar__tittle'>
         <ion-icon name='contacts'></ion-icon>
         <i className={icon} /> {title}
-      </h1>
+      </div>
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
     </div>
   );
@@ -49,7 +48,6 @@ Navbar.propTypes = {
   icon: PropTypes.string.isRequired
 };
 
-// TODO: include icon
 Navbar.defaultProps = {
   title: 'Users Reminder',
   icon: ''

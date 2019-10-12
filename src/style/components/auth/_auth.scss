@@ -1,0 +1,28 @@
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  overflow: hidden;
+  padding: 0 2rem;
+  // border: 2px solid $color-primary;
+  // border-radius: 5px;
+  // padding: 2rem;
+}
+
+.form-tittle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-primary-dark;
+}
+
+.form-group {
+  margin: 1.2rem 0;
+  font-size: $default-font-size;
+
+  input {
+    margin: 0.2rem 0;
+  }
+  
+}

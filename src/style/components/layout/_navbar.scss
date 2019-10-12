@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  z-index: 1;
+  width: 100%;
+  border-bottom: solid 1px $color-primary;
+  background: $color-primary;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+
+  @include respond(phone) {
+    flex-direction: column;
+  }
+
+  &__tittle {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: $color-white;
+    font-weight: 700;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  li {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $color-white;
+  }
+  a {
+    color: $color-white;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-grey-light-2;
+    }
+  }
+}

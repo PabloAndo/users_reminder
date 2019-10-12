@@ -1,0 +1,22 @@
+.user-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0.7rem 0;
+  // border: 1px solid $color-grey-dark-1;
+  border: 1.5px solid $color-primary;
+  border-radius: 3px;
+
+  @include respond(phone) {
+    // margin: 1rem 0;
+    // padding: 1.2rem;
+  }
+}
+
+.user-delete-btn {
+  display: flex;
+  span {
+    margin-left: 0.5rem;
+  }
+}

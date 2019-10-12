@@ -1,0 +1,89 @@
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 3rem !important;
+  }
+}
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+
+  @include respond(tab-port) {
+    margin-bottom: 5rem !important;
+  }
+}
+
+.u-margin-top-medium {
+  margin-top: 4rem !important;
+}
+.u-margin-top-big {
+  margin-top: 8rem !important;
+}
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  background: $color-grey-light-1;
+  color: #333;
+  padding: 0.8rem 1.3rem;
+  font-size: $default-font-size;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: all 0.2s;
+  outline: none;
+  border-radius: 3px;
+
+  &--primary {
+    background: $color-primary;
+    color: $color-white;
+  }
+
+  &--danger {
+    background: $color-danger;
+    color: $color-white;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--small {
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    margin-right: 0.2rem;
+  }
+
+  &:hover {
+    // transform: translateY(-2px);
+    opacity: 0.9;
+  }
+}
+
+/* Inputs */
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+select {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.6rem;
+  // border: 1px solid $color-grey-dark-1;
+  border: 1.5px solid $color-primary;
+  border-radius: 3px;
+  color: $color-grey-dark-1;
+}

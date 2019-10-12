@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/layout/Navbar/Navbar';
+import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import SignUp from './components/auth/SignUp';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 import About from './components/pages/About';
-import Alerts from './components/layout/Alerts/Alerts';
+import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 import UserState from './context/user/UserState';

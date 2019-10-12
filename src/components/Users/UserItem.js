@@ -13,11 +13,14 @@ const UserItem = ({ user }) => {
   };
 
   return (
-    <div className='card bg-light'>
+    <div className='user-card bg-light'>
       <h3 className='text-primary text-left'>{username}</h3>
       <p>
-        <button className='btn btn-danger btn-sm' onClick={onDelete}>
-          Delete
+        <button className='btn btn--danger btn--small' onClick={onDelete}>
+          <div className='user-delete-btn'>
+            <ion-icon name='trash'></ion-icon>
+            <span>Delete</span>
+          </div>
         </button>
       </p>
     </div>

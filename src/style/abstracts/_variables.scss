@@ -1,12 +1,4 @@
 // COLORS
-
-:global(.color-primary) {
-  color: #55c57a;
-}
-
-:global(.bg-pando) {
-  background-color: yellow;
-}
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
@@ -20,12 +12,15 @@ $color-tertiary-dark: #5642fa;
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
 
-$color-grey-dark: #777;
+$color-grey-dark-1: #777;
 $color-grey-dark-2: #999;
 $color-grey-dark-3: #333;
 
 $color-white: #fff;
 $color-black: #000;
+
+$color-danger: #dc3545;
+$color-success: #28a745;
 
 // FONT
 $default-font-size: 1.6rem;

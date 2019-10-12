@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import Users from '../Users/Users';
-import UserFilter from '../Users/UserFilter';
+import Users from '../users/Users';
+import UserFilter from '../users/UserFilter';
 import AuthContext from '../../context/auth/authContext';
 
 const Home = () => {
@@ -12,7 +12,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className='home-container'>
+      <h1>Users who signed up:</h1>
       <UserFilter />
       <Users />
     </div>
