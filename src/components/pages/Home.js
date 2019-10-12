@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
-import Users from '../users/Users';
+import Users from '../users/users';
 import UserFilter from '../users/UserFilter';
 
 const Home = () => {
