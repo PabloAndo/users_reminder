@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
-import Users from '../users/Users';
 import UserFilter from '../users/UserFilter';
 import AuthContext from '../../context/auth/authContext';
+import Users from '../users/Users';
 
 const Home = () => {
   const authContext = useContext(AuthContext);
