@@ -1,6 +1,6 @@
 .about {
   &__container {
-    max-width: 500px;
+    max-width: 600px;
     margin: 2rem auto;
     overflow: hidden;
     padding: 0 2rem;
@@ -10,7 +10,6 @@
     font-size: 2rem;
     font-weight: 700;
     color: $color-primary;
-
   }
 
   &__version {

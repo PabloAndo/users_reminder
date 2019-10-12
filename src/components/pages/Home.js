@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div className='home-container'>
-      <h1>Users who signed up:</h1>
+      <h1>Signed Up Users:</h1>
       <UserFilter />
       <Users />
     </div>
